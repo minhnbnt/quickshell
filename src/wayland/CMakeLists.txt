@@ -72,7 +72,7 @@ endfunction()
 
 # -----
 
-qt_add_library(quickshell-wayland STATIC
+qt_add_library(quickshell-wayland SHARED
 	platformmenu.cpp
 	popupanchor.cpp
 	xdgshell.cpp
@@ -135,12 +135,13 @@ qt_add_qml_module(quickshell-wayland
 	VERSION 0.1
 	DEPENDENCIES QtQuick
 	IMPORTS ${WAYLAND_MODULES}
+	PLUGIN_TYPE DYNAMIC
 )
 
 qs_add_module_deps_light(quickshell-wayland Quickshell)
 
 install_qml_module(quickshell-wayland)
 
-qs_module_pch(quickshell-wayland SET large)
+qs_pch(quickshell-wayland SET large)
 
-target_link_libraries(quickshell PRIVATE quickshell-waylandplugin quickshell-wayland-init)
+target_link_libraries(quickshell PRIVATE quickshell-wayland quickshell-wayland-init)

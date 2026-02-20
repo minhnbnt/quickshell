@@ -3,6 +3,7 @@
 #include <qobject.h>
 #include <qqmlintegration.h>
 
+#include "export.h"
 #include "reload.hpp"
 
 ///! Object that holds properties that can persist across a config reload.
@@ -38,7 +39,7 @@
 ///   visible: persist.expanderOpen
 /// }
 /// ```
-class PersistentProperties: public Reloadable {
+class QS_API PersistentProperties: public Reloadable {
 	Q_OBJECT;
 	QML_ELEMENT;
 

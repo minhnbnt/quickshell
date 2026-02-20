@@ -12,7 +12,7 @@
 namespace qs::bluetooth {
 
 ///! Power state of a Bluetooth adapter.
-class BluetoothAdapterState: public QObject {
+class QS_API BluetoothAdapterState: public QObject {
 	Q_OBJECT;
 	QML_ELEMENT;
 	QML_SINGLETON;
@@ -155,7 +155,7 @@ private:
 	Q_OBJECT_BINDABLE_PROPERTY(BluetoothAdapter, bool, bDiscovering, &BluetoothAdapter::discoveringChanged);
 	Q_OBJECT_BINDABLE_PROPERTY(BluetoothAdapter, bool, bPairable, &BluetoothAdapter::pairableChanged);
 	Q_OBJECT_BINDABLE_PROPERTY(BluetoothAdapter, quint32, bPairableTimeout, &BluetoothAdapter::pairableTimeoutChanged);
-	
+
 	QS_DBUS_BINDABLE_PROPERTY_GROUP(BluetoothAdapter, properties);
 	QS_DBUS_PROPERTY_BINDING(BluetoothAdapter, pName, bName, properties, "Alias");
 	QS_DBUS_PROPERTY_BINDING(BluetoothAdapter, pEnabled, bEnabled, properties, "Powered");

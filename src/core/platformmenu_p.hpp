@@ -2,9 +2,11 @@
 #include <qmenu.h>
 #include <qpoint.h>
 
+#include "export.h"
+
 namespace qs::menu::platform {
 
-class PlatformMenuQMenu: public QMenu {
+class QS_API PlatformMenuQMenu: public QMenu {
 public:
 	explicit PlatformMenuQMenu() = default;
 	~PlatformMenuQMenu() override;

@@ -6,6 +6,7 @@
 #include <qqmlintegration.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
 #include "incubator.hpp"
 #include "reload.hpp"
 
@@ -82,7 +83,7 @@
 /// > Notably, @@Variants does not corrently support asynchronous
 /// > loading, meaning using it inside a LazyLoader will block similarly to not
 /// > having a loader to start with.
-class LazyLoader: public Reloadable {
+class QS_API LazyLoader: public Reloadable {
 	Q_OBJECT;
 	/// The fully loaded item if the loader is @@loading or @@active, or `null`
 	/// if neither @@loading nor @@active.

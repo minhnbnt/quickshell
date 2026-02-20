@@ -10,7 +10,9 @@
 #include <qtypes.h>
 #include <qurl.h>
 
-class ColorQuantizerOperation
+#include "export.h"
+
+class QS_API ColorQuantizerOperation
     : public QObject
     , public QRunnable {
 	Q_OBJECT;
@@ -60,7 +62,7 @@ private:
 ///   rescaleSize: 64 // Rescale to 64x64 for faster processing
 /// }
 /// ```
-class ColorQuantizer
+class QS_API ColorQuantizer
     : public QObject
     , public QQmlParserStatus {
 	Q_OBJECT;

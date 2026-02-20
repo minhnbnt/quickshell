@@ -60,7 +60,7 @@ public:
 };
 
 ///! Standard toplevel operating system window that looks like any other application.
-class FloatingWindowInterface: public WindowInterface {
+class QS_API FloatingWindowInterface: public WindowInterface {
 	Q_OBJECT;
 	// clang-format off
 	/// Window title.

@@ -3,7 +3,9 @@
 #include <qpixmap.h>
 #include <qquickimageprovider.h>
 
-class IconImageProvider: public QQuickImageProvider {
+#include "export.h"
+
+class QS_API IconImageProvider: public QQuickImageProvider {
 public:
 	explicit IconImageProvider(): QQuickImageProvider(QQuickImageProvider::Pixmap) {}
 

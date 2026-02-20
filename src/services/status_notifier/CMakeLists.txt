@@ -39,8 +39,8 @@ qt_add_library(quickshell-service-statusnotifier STATIC
 target_include_directories(quickshell-service-statusnotifier PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
 qt_add_qml_module(quickshell-service-statusnotifier
-  URI Quickshell.Services.SystemTray
-  VERSION 0.1
+		URI Quickshell.Services.SystemTray
+		VERSION 0.1
 	DEPENDENCIES QtQml
 )
 

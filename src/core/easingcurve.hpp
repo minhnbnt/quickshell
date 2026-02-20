@@ -7,9 +7,11 @@
 #include <qrect.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
+
 ///! Easing curve.
 /// Directly accessible easing curve as used in property animations.
-class EasingCurve: public QObject {
+class QS_API EasingCurve: public QObject {
 	Q_OBJECT;
 	/// Easing curve settings. Works exactly the same as
 	/// [PropertyAnimation.easing](https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html#easing-prop).

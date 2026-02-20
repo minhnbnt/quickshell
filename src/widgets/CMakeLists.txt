@@ -7,6 +7,9 @@ qt_add_library(quickshell-widgets STATIC
 qt_add_qml_module(quickshell-widgets
 	URI Quickshell.Widgets
 	VERSION 0.1
+	DEPENDENCIES QtQml
+	PLUGIN_TYPE DYNAMIC
+	
 	QML_FILES
 		IconImage.qml
 		ClippingRectangle.qml
@@ -32,9 +35,11 @@ qt6_add_shaders(quickshell-widgets "widgets-cliprect-ub"
 	DEFINES CONTENT_UNDER_BORDER
 )
 
+target_link_libraries(quickshell-widgetsplugin PRIVATE quickshell)
+
 install_qml_module(quickshell-widgets)
 
-qs_module_pch(quickshell-widgets)
+qs_pch(quickshell-widgets)
 
 target_link_libraries(quickshell-widgets PRIVATE Qt::Quick)
-target_link_libraries(quickshell PRIVATE quickshell-widgetsplugin)
+target_link_libraries(quickshell PRIVATE quickshell-widgets)

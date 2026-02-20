@@ -5,7 +5,9 @@
 #include <qstring.h>
 #include <sys/types.h>
 
-struct InstanceInfo {
+#include "export.h"
+
+struct QS_API InstanceInfo {
 	QString instanceId;
 	QString configPath;
 	QString shellId;
@@ -16,7 +18,7 @@ struct InstanceInfo {
 	static InstanceInfo CURRENT; // NOLINT
 };
 
-struct RelaunchInfo {
+struct QS_API RelaunchInfo {
 	InstanceInfo instance;
 	bool noColor = false;
 	bool timestamp = false;
@@ -25,15 +27,15 @@ struct RelaunchInfo {
 	QString logRules;
 };
 
-QDataStream& operator<<(QDataStream& stream, const InstanceInfo& info);
-QDataStream& operator>>(QDataStream& stream, InstanceInfo& info);
+QS_API QDataStream& operator<<(QDataStream& stream, const InstanceInfo& info);
+QS_API QDataStream& operator>>(QDataStream& stream, InstanceInfo& info);
 
-QDataStream& operator<<(QDataStream& stream, const RelaunchInfo& info);
-QDataStream& operator>>(QDataStream& stream, RelaunchInfo& info);
+QS_API QDataStream& operator<<(QDataStream& stream, const RelaunchInfo& info);
+QS_API QDataStream& operator>>(QDataStream& stream, RelaunchInfo& info);
 
 namespace qs::crash {
 
-struct CrashInfo {
+struct QS_API CrashInfo {
 	int logFd = -1;
 
 	static CrashInfo INSTANCE; // NOLINT

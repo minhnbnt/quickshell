@@ -12,6 +12,7 @@
 #include <qvariant.h>
 
 #include "doc.hpp"
+#include "export.h"
 #include "reload.hpp"
 
 // extremely inefficient map
@@ -39,7 +40,7 @@ public:
 ///
 /// > [!WARNING] BUG: Variants currently fails to reload children if the variant set is changed as
 /// > it is instantiated. (usually due to a mutation during variant creation)
-class Variants: public Reloadable {
+class QS_API Variants: public Reloadable {
 	Q_OBJECT;
 	/// The component to create instances of.
 	///

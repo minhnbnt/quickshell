@@ -6,7 +6,9 @@
 #include <qqmlintegration.h>
 #include <qtmetamacros.h>
 
-class ClippingRectangleBorder {
+#include "../core/export.h"
+
+class QS_API ClippingRectangleBorder {
 	Q_GADGET;
 	Q_PROPERTY(QColor color MEMBER color);
 	Q_PROPERTY(bool pixelAligned MEMBER pixelAligned);

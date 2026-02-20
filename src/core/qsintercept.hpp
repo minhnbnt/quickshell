@@ -10,11 +10,12 @@
 #include <qqmlnetworkaccessmanagerfactory.h>
 #include <qurl.h>
 
+#include "export.h"
 #include "logcat.hpp"
 
 QS_DECLARE_LOGGING_CATEGORY(logQsIntercept);
 
-class QsUrlInterceptor: public QQmlAbstractUrlInterceptor {
+class QS_API QsUrlInterceptor: public QQmlAbstractUrlInterceptor {
 public:
 	explicit QsUrlInterceptor(const QDir& configRoot): configRoot(configRoot) {}
 
@@ -24,7 +25,7 @@ private:
 	QDir configRoot;
 };
 
-class QsInterceptDataReply: public QNetworkReply {
+class QS_API QsInterceptDataReply: public QNetworkReply {
 	Q_OBJECT;
 
 public:
@@ -40,7 +41,7 @@ private:
 	QByteArray content;
 };
 
-class QsInterceptNetworkAccessManager: public QNetworkAccessManager {
+class QS_API QsInterceptNetworkAccessManager: public QNetworkAccessManager {
 	Q_OBJECT;
 
 public:
@@ -62,7 +63,7 @@ private:
 	const QHash<QString, QString>& fileIntercepts;
 };
 
-class QsInterceptNetworkAccessManagerFactory: public QQmlNetworkAccessManagerFactory {
+class QS_API QsInterceptNetworkAccessManagerFactory: public QQmlNetworkAccessManagerFactory {
 public:
 	QsInterceptNetworkAccessManagerFactory(
 	    const QDir& configRoot,

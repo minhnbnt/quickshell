@@ -1,5 +1,7 @@
 #pragma once
 
+#include "export.h"
+
 // The logging rule parser from qloggingregistry_p.h and qloggingregistry.cpp.
 
 // Was unable to properly link the functions when directly using the headers (which we depend
@@ -19,7 +21,7 @@ QS_DECLARE_LOGGING_CATEGORY(logLogging);
 
 namespace qt_logging_registry {
 
-class QLoggingRule {
+class QS_API QLoggingRule {
 public:
 	QLoggingRule();
 	QLoggingRule(QStringView pattern, bool enabled);

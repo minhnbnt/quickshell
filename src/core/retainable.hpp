@@ -5,6 +5,8 @@
 #include <qtclasshelpermacros.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
+
 class Retainable;
 
 ///! Attached object for types that can have delayed destruction.
@@ -19,7 +21,7 @@ class Retainable;
 /// > [!INFO] Working directly with @@Retainable is often overly complicated and
 /// > error prone. For this reason @@RetainableLock should
 /// > usually be used instead.
-class RetainableHook: public QObject {
+class QS_API RetainableHook: public QObject {
 	Q_OBJECT;
 	/// If the object is currently in a retained state.
 	Q_PROPERTY(bool retained READ isRetained NOTIFY retainedChanged);
@@ -84,7 +86,7 @@ private:
 	friend class Retainable;
 };
 
-class Retainable {
+class QS_API Retainable {
 public:
 	Retainable() = default;
 	virtual ~Retainable() = default;
@@ -119,7 +121,7 @@ private:
 ///   locked: true
 /// }
 /// ```
-class RetainableLock: public QObject {
+class QS_API RetainableLock: public QObject {
 	Q_OBJECT;
 	/// The object to lock. Must be @@Retainable.
 	Q_PROPERTY(QObject* object READ object WRITE setObject NOTIFY objectChanged);

@@ -13,6 +13,7 @@
 
 #include "desktopentrymonitor.hpp"
 #include "doc.hpp"
+#include "export.h"
 #include "model.hpp"
 
 class DesktopAction;
@@ -47,7 +48,7 @@ struct ParsedDesktopEntryData {
 };
 
 /// A desktop entry. See @@DesktopEntries for details.
-class DesktopEntry: public QObject {
+class QS_API DesktopEntry: public QObject {
 	Q_OBJECT;
 	Q_PROPERTY(QString id MEMBER mId CONSTANT);
 	/// Name of the specific application, such as "Firefox".
@@ -173,7 +174,7 @@ private:
 };
 
 /// An action of a @@DesktopEntry$.
-class DesktopAction: public QObject {
+class QS_API DesktopAction: public QObject {
 	Q_OBJECT;
 	Q_PROPERTY(QString id MEMBER mId CONSTANT);
 	// clang-format off
@@ -236,7 +237,7 @@ private:
 
 class DesktopEntryManager;
 
-class DesktopEntryScanner: public QRunnable {
+class QS_API DesktopEntryScanner: public QRunnable {
 public:
 	explicit DesktopEntryScanner(DesktopEntryManager* manager);
 
@@ -249,7 +250,7 @@ private:
 	DesktopEntryManager* manager;
 };
 
-class DesktopEntryManager: public QObject {
+class QS_API DesktopEntryManager: public QObject {
 	Q_OBJECT;
 
 public:
@@ -291,7 +292,7 @@ private:
 /// currently no mechanism for usage based sorting of entries and other launcher niceties.
 ///
 /// [desktop entry specification]: https://specifications.freedesktop.org/desktop-entry-spec/latest/
-class DesktopEntries: public QObject {
+class QS_API DesktopEntries: public QObject {
 	Q_OBJECT;
 	/// All desktop entries of type Application that are not Hidden or NoDisplay.
 	QSDOC_TYPE_OVERRIDE(ObjectModel<DesktopEntry>*);

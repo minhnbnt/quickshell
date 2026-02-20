@@ -10,6 +10,8 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
+#include "export.h"
+
 // unfortunately QQuickScreenInfo is private.
 
 /// Monitor object useful for setting the monitor for a @@QsWindow
@@ -20,7 +22,7 @@
 /// > Reconnecting the monitor will not reconnect it to the ShellMonitor object.
 ///
 /// Due to some technical limitations, it was not possible to reuse the native qml @@QtQuick.Screen type.
-class QuickshellScreenInfo: public QObject {
+class QS_API QuickshellScreenInfo: public QObject {
 	Q_OBJECT;
 	QML_NAMED_ELEMENT(ShellScreen);
 	QML_UNCREATABLE("ShellScreen can only be obtained via Quickshell.screens");
@@ -84,4 +86,4 @@ private slots:
 	void screenDestroyed();
 };
 
-QDebug operator<<(QDebug debug, const QuickshellScreenInfo* screen);
+QS_API QDebug operator<<(QDebug debug, const QuickshellScreenInfo* screen);

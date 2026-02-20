@@ -7,9 +7,10 @@
 #include <qtmetamacros.h>
 #include <qurl.h>
 
+#include "export.h"
 #include "generation.hpp"
 
-class RootWrapper: public QObject {
+class QS_API RootWrapper: public QObject {
 	Q_OBJECT;
 
 public:

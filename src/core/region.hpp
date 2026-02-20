@@ -9,6 +9,8 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
+#include "export.h"
+
 ///! Shape of a Region.
 /// See @@Region.shape.
 namespace RegionShape { // NOLINT
@@ -47,7 +49,7 @@ Q_ENUM_NS(Enum);
 
 ///! A composable region used as a mask.
 /// See @@QsWindow.mask.
-class PendingRegion: public QObject {
+class QS_API PendingRegion: public QObject {
 	Q_OBJECT;
 	/// Defaults to `Rect`.
 	Q_PROPERTY(RegionShape::Enum shape MEMBER mShape NOTIFY shapeChanged);

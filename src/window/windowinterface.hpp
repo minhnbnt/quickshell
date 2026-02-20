@@ -15,7 +15,7 @@
 class ProxyWindowBase;
 class QsWindowAttached;
 
-class QsSurfaceFormat {
+class QS_API QsSurfaceFormat {
 	Q_GADGET;
 	QML_VALUE_TYPE(surfaceFormat);
 	QML_STRUCTURED_VALUE;
@@ -45,7 +45,7 @@ public:
 ///
 /// @@itemPosition(), @@itemRect(), and @@mapFromItem() can also be called directly
 /// on the attached object.
-class WindowInterface: public Reloadable {
+class QS_API WindowInterface: public Reloadable {
 	Q_OBJECT;
 	// clang-format off
 	Q_PROPERTY(QQuickItem* contentItem READ contentItem CONSTANT);
@@ -263,7 +263,7 @@ protected:
 	void connectSignals() const;
 };
 
-class QsWindowAttached: public QObject {
+class QS_API QsWindowAttached: public QObject {
 	Q_OBJECT;
 	Q_PROPERTY(QObject* window READ window NOTIFY windowChanged);
 	Q_PROPERTY(QQuickItem* contentItem READ contentItem NOTIFY windowChanged);

@@ -7,6 +7,8 @@
 #include <qquickwindow.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
+
 #ifdef QS_TEST
 class TestTransformWatcher;
 #endif
@@ -18,7 +20,7 @@ class TestTransformWatcher;
 /// > [!INFO] The algorithm responsible for determining the relationship
 /// > between `a` and `b` is biased towards `a` being a parent of `b`,
 /// > or `a` being closer to the common parent of `a` and `b` than `b`.
-class TransformWatcher: public QObject {
+class QS_API TransformWatcher: public QObject {
 	Q_OBJECT;
 	// clang-format off
 	Q_PROPERTY(QQuickItem* a READ a WRITE setA NOTIFY aChanged);

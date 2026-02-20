@@ -5,7 +5,9 @@
 #include <qstringlist.h>
 #include <qtimer.h>
 
-class DesktopEntryMonitor: public QObject {
+#include "export.h"
+
+class QS_API DesktopEntryMonitor: public QObject {
 	Q_OBJECT
 
 public:

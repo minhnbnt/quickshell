@@ -13,6 +13,7 @@
 #include <qvariant.h>
 
 #include "doc.hpp"
+#include "export.h"
 
 ///! View into a list of objets
 /// Typed view into a list of objects.
@@ -37,7 +38,7 @@
 /// ```
 ///
 /// [Data Model]: https://doc.qt.io/qt-6/qtquick-modelviewsdata-modelview.html#qml-data-models
-class UntypedObjectModel: public QAbstractListModel {
+class QS_API UntypedObjectModel: public QAbstractListModel {
 	QSDOC_CNAME(ObjectModel);
 	Q_OBJECT;
 	/// The content of the object model, as a QML list.

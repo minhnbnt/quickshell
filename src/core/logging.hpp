@@ -13,13 +13,14 @@
 #include <qobject.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
 #include "logcat.hpp"
 
 QS_DECLARE_LOGGING_CATEGORY(logBare);
 
 namespace qs::log {
 
-struct LogMessage {
+struct QS_API LogMessage {
 	explicit LogMessage() = default;
 
 	explicit LogMessage(
@@ -50,11 +51,11 @@ struct LogMessage {
 	);
 };
 
-size_t qHash(const LogMessage& message);
+QS_API size_t qHash(const LogMessage& message);
 
 class ThreadLogging;
 
-class LoggingThreadProxy: public QObject {
+class QS_API LoggingThreadProxy: public QObject {
 	Q_OBJECT;
 
 public:
@@ -72,7 +73,7 @@ namespace qt_logging_registry {
 class QLoggingRule;
 }
 
-struct CategoryFilter {
+struct QS_API CategoryFilter {
 	explicit CategoryFilter() = default;
 	explicit CategoryFilter(QLoggingCategory* category)
 	    : debug(category->isDebugEnabled())
@@ -90,7 +91,7 @@ struct CategoryFilter {
 	bool critical = true;
 };
 
-class LogManager: public QObject {
+class QS_API LogManager: public QObject {
 	Q_OBJECT;
 
 public:
@@ -140,7 +141,7 @@ private:
 	friend void initLogCategoryLevel(const char* name, QtMsgType defaultLevel);
 };
 
-bool readEncodedLogs(
+QS_API bool readEncodedLogs(
     QFile* file,
     const QString& path,
     bool timestamps,

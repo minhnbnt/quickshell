@@ -17,7 +17,7 @@ namespace qs::bluetooth {
 class BluetoothAdapter;
 class BluetoothDevice;
 
-class Bluez: public QObject {
+class QS_API Bluez: public QObject {
 	Q_OBJECT;
 
 public:

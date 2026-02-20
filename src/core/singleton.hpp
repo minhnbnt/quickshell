@@ -8,11 +8,12 @@
 #include <qtypes.h>
 #include <qurl.h>
 
+#include "export.h"
 #include "reload.hpp"
 
 ///! The root component for reloadable singletons.
 /// All singletons should inherit from this type.
-class Singleton: public ReloadPropagator {
+class QS_API Singleton: public ReloadPropagator {
 	Q_OBJECT;
 	QML_ELEMENT;
 
@@ -20,7 +21,7 @@ public:
 	void componentComplete() override;
 };
 
-class SingletonRegistry {
+class QS_API SingletonRegistry {
 public:
 	SingletonRegistry() = default;
 

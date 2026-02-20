@@ -6,6 +6,8 @@
 #include <qqmlintegration.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
+
 ///! QML model reflecting a javascript expression
 /// ScriptModel is a QML [Data Model] that generates model operations based on changes
 /// to a javascript expression attached to @@values.
@@ -38,7 +40,7 @@
 /// ```
 /// [QAbstractItemModel]: https://doc.qt.io/qt-6/qabstractitemmodel.html
 /// [Data Model]: https://doc.qt.io/qt-6/qtquick-modelviewsdata-modelview.html#qml-data-models
-class ScriptModel: public QAbstractListModel {
+class QS_API ScriptModel: public QAbstractListModel {
 	Q_OBJECT;
 	/// The list of values to reflect in the model.
 	/// > [!WARNING] ScriptModel currently only works with lists of *unique* values.

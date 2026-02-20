@@ -8,6 +8,7 @@
 #include <qsignalmapper.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
 #include "incubator.hpp"
 
 ///! Component loader that allows setting initial properties.
@@ -44,7 +45,7 @@
 ///   }
 /// }
 /// ```
-class BoundComponent: public QQuickItem {
+class QS_API BoundComponent: public QQuickItem {
 	Q_OBJECT;
 	// clang-format off
 	/// The loaded component. Will be null until it has finished loading.
@@ -103,7 +104,7 @@ private:
 	bool componentCompleted = false;
 };
 
-class BoundComponentPropertyProxy: public QObject {
+class QS_API BoundComponentPropertyProxy: public QObject {
 	Q_OBJECT;
 
 public:

@@ -5,11 +5,12 @@
 #include <qqmlincubator.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
 #include "logcat.hpp"
 
 QS_DECLARE_LOGGING_CATEGORY(logIncubator);
 
-class QsQmlIncubator
+class QS_API QsQmlIncubator
     : public QObject
     , public QQmlIncubator {
 	Q_OBJECT;
@@ -28,7 +29,7 @@ signals:
 
 class QSGRenderLoop;
 
-class QsIncubationController
+class QS_API QsIncubationController
     : public QObject
     , public QQmlIncubationController {
 	Q_OBJECT

@@ -12,13 +12,14 @@
 #include <qtmetamacros.h>
 
 #include "../core/popupanchor.hpp"
+#include "export.h"
 #include "qsmenu.hpp"
 
 namespace qs::menu::platform {
 
 class PlatformMenuQMenu;
 
-class PlatformMenuEntry: public QObject {
+class QS_API PlatformMenuEntry: public QObject {
 	Q_OBJECT;
 
 public:

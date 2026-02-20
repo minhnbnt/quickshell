@@ -8,19 +8,21 @@
 #include <qtclasshelpermacros.h>
 #include <qtmetamacros.h>
 
-class QsImageProvider: public QQuickImageProvider {
+#include "export.h"
+
+class QS_API QsImageProvider: public QQuickImageProvider {
 public:
 	explicit QsImageProvider(): QQuickImageProvider(QQuickImageProvider::Image) {}
 	QImage requestImage(const QString& id, QSize* size, const QSize& requestedSize) override;
 };
 
-class QsPixmapProvider: public QQuickImageProvider {
+class QS_API QsPixmapProvider: public QQuickImageProvider {
 public:
 	explicit QsPixmapProvider(): QQuickImageProvider(QQuickImageProvider::Pixmap) {}
 	QPixmap requestPixmap(const QString& id, QSize* size, const QSize& requestedSize) override;
 };
 
-class QsImageHandle {
+class QS_API QsImageHandle {
 public:
 	explicit QsImageHandle(QQmlImageProviderBase::ImageType type);
 	virtual ~QsImageHandle();
@@ -36,7 +38,7 @@ private:
 	QString id;
 };
 
-class QsIndexedImageHandle: public QsImageHandle {
+class QS_API QsIndexedImageHandle: public QsImageHandle {
 public:
 	explicit QsIndexedImageHandle(QQmlImageProviderBase::ImageType type): QsImageHandle(type) {}
 

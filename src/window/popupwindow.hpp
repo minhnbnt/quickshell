@@ -40,7 +40,7 @@
 ///   }
 /// }
 /// ```
-class ProxyPopupWindow: public ProxyWindowBase {
+class QS_API ProxyPopupWindow: public ProxyWindowBase {
 	QSDOC_BASECLASS(WindowInterface);
 	Q_OBJECT;
 	// clang-format off

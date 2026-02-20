@@ -10,6 +10,7 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
+#include "../core/export.h"
 #include "../core/doc.hpp"
 
 namespace qs::widgets {
@@ -81,7 +82,7 @@ namespace qs::widgets {
 ///   to its child.
 /// - @@WrapperRectangle - A @@MarginWrapperManager based component that sizes
 ///   itself to its child, and provides an option to use its border as an inset.
-class WrapperManager
+class QS_API WrapperManager
     : public QObject
     , public QQmlParserStatus {
 	Q_OBJECT;

@@ -7,6 +7,8 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
+#include "export.h"
+
 ///! System clock accessor.
 /// SystemClock is a view into the system's clock.
 /// It updates at hour, minute, or second intervals depending on @@precision.
@@ -27,7 +29,7 @@
 /// > however this can be either before or after the clock changes (+-50ms). If you
 /// > need a date object, use @@date instead of constructing a new one, or the time
 /// > of the constructed object could be off by up to a second.
-class SystemClock: public QObject {
+class QS_API SystemClock: public QObject {
 	Q_OBJECT;
 	/// If the clock should update. Defaults to true.
 	///

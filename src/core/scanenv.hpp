@@ -4,9 +4,11 @@
 #include <qobject.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
+
 namespace qs::scan::env {
 
-class PreprocEnv: public QObject {
+class QS_API PreprocEnv: public QObject {
 	Q_OBJECT;
 
 public:

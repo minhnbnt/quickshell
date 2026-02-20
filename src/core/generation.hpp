@@ -12,6 +12,7 @@
 #include <qquickwindow.h>
 #include <qtclasshelpermacros.h>
 
+#include "export.h"
 #include "incubator.hpp"
 #include "qsintercept.hpp"
 #include "scan.hpp"
@@ -20,14 +21,14 @@
 class RootWrapper;
 class QuickshellGlobal;
 
-class EngineGenerationExt {
+class QS_API EngineGenerationExt {
 public:
 	EngineGenerationExt() = default;
 	virtual ~EngineGenerationExt() = default;
 	Q_DISABLE_COPY_MOVE(EngineGenerationExt);
 };
 
-class EngineGeneration: public QObject {
+class QS_API EngineGeneration: public QObject {
 	Q_OBJECT;
 
 public:

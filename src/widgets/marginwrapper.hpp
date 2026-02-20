@@ -7,6 +7,7 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
+#include "../core/export.h"
 #include "wrapper.hpp"
 
 namespace qs::widgets {
@@ -42,7 +43,7 @@ namespace qs::widgets {
 ///
 /// The implicit size of the wrapper is the implicit size of the content item
 /// plus all margins.
-class MarginWrapperManager: public WrapperManager {
+class QS_API MarginWrapperManager: public WrapperManager {
 	Q_OBJECT;
 	// clang-format off
 	/// The default for @@topMargin, @@bottomMargin, @@leftMargin and @@rightMargin.

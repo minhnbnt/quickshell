@@ -1,0 +1,9 @@
+#pragma once
+
+#include <QtCore/qglobal.h>
+
+#if defined(QS_CORE_LIBRARY)
+#define QS_API Q_DECL_EXPORT
+#else
+#define QS_API Q_DECL_IMPORT
+#endif

@@ -1,9 +1,9 @@
-qt_add_executable(quickshell main.cpp)
+qt_add_library(quickshell SHARED)
 
-install(TARGETS quickshell RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+#install(TARGETS quickshell RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 add_subdirectory(build)
-add_subdirectory(launch)
+#add_subdirectory(launch)
 add_subdirectory(core)
 add_subdirectory(debug)
 add_subdirectory(ipc)
@@ -12,28 +12,28 @@ add_subdirectory(io)
 add_subdirectory(widgets)
 add_subdirectory(ui)
 
-if (CRASH_REPORTER)
-	add_subdirectory(crash)
-endif()
+# if (CRASH_REPORTER)
+# 	add_subdirectory(crash)
+# endif()
 
 if (DBUS)
-	add_subdirectory(dbus)
+ 	add_subdirectory(dbus)
 endif()
 
 if (WAYLAND)
-	add_subdirectory(wayland)
+ 	add_subdirectory(wayland)
 endif()
 
 if (X11)
-	add_subdirectory(x11)
+ 	add_subdirectory(x11)
 endif()
 
-add_subdirectory(services)
+# add_subdirectory(services)
 
 if (BLUETOOTH)
 	add_subdirectory(bluetooth)
 endif()
 
-if (NETWORK)
-	add_subdirectory(network)
-endif()
+# if (NETWORK)
+# 	add_subdirectory(network)
+# endif()

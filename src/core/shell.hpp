@@ -5,11 +5,12 @@
 #include <qqmlengine.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
 #include "qmlglobal.hpp"
 #include "reload.hpp"
 
 ///! Optional root config element, allowing some settings to be specified inline.
-class ShellRoot: public ReloadPropagator {
+class QS_API ShellRoot: public ReloadPropagator {
 	Q_OBJECT;
 	Q_PROPERTY(QuickshellSettings* settings READ settings CONSTANT);
 	QML_ELEMENT;

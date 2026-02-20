@@ -7,12 +7,14 @@
 #include <qqmlparserstatus.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
+
 class EngineGeneration;
 
 ///! The base class of all types that can be reloaded.
 /// Reloadables will attempt to take specific state from previous config revisions if possible.
 /// Some examples are @@ProxyWindowBase and @@PersistentProperties
-class Reloadable
+class QS_API Reloadable
     : public QObject
     , public QQmlParserStatus {
 	Q_OBJECT;
@@ -99,7 +101,7 @@ private:
 ///     }
 ///   }
 /// }
-class ReloadPropagator: public Reloadable {
+class QS_API ReloadPropagator: public Reloadable {
 	Q_OBJECT;
 	Q_PROPERTY(QQmlListProperty<QObject> children READ data);
 	Q_CLASSINFO("DefaultProperty", "children");
@@ -119,7 +121,7 @@ private:
 };
 
 /// Hook that runs after the old widget tree is dropped during a reload.
-class PostReloadHook
+class QS_API PostReloadHook
     : public QObject
     , public QQmlParserStatus {
 	Q_OBJECT;

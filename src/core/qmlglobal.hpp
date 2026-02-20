@@ -17,10 +17,11 @@
 
 #include "../io/processcore.hpp"
 #include "doc.hpp"
+#include "export.h"
 #include "qmlscreen.hpp"
 
 ///! Accessor for some options under the Quickshell type.
-class QuickshellSettings: public QObject {
+class QS_API QuickshellSettings: public QObject {
 	Q_OBJECT;
 	// clang-format off
 	/// Quickshell's working directory. Defaults to whereever quickshell was launched from.
@@ -60,7 +61,7 @@ private:
 	bool mWatchFiles = true;
 };
 
-class QuickshellTracked: public QObject {
+class QS_API QuickshellTracked: public QObject {
 	Q_OBJECT;
 
 public:
@@ -78,7 +79,7 @@ signals:
 	void screensChanged();
 };
 
-class QuickshellGlobal: public QObject {
+class QS_API QuickshellGlobal: public QObject {
 	Q_OBJECT;
 	// clang-format off
 	/// Quickshell's process id.

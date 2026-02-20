@@ -2,11 +2,12 @@
 
 #include <qdir.h>
 
+#include "export.h"
 #include "scan.hpp"
 
 namespace qs::core {
 
-class QmlToolingSupport {
+class QS_API QmlToolingSupport {
 public:
 	static bool updateTooling(const QDir& configRoot, QmlScanner& scanner);
 

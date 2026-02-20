@@ -4,6 +4,7 @@
 #include <qtclasshelpermacros.h>
 #include <qtmetamacros.h>
 
+#include "export.h"
 #include "platformmenu.hpp"
 #include "popupanchor.hpp"
 #include "qsmenu.hpp"
@@ -11,7 +12,7 @@
 namespace qs::menu {
 
 ///! Display anchor for platform menus.
-class QsMenuAnchor: public QObject {
+class QS_API QsMenuAnchor: public QObject {
 	Q_OBJECT;
 	/// The menu's anchor / positioner relative to another window. The menu will not be
 	/// shown until it has a valid anchor.

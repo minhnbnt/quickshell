@@ -6,10 +6,12 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
+#include "export.h"
+
 ///! Measures time between events
 /// The ElapsedTimer measures time since its last restart, and is useful
 /// for determining the time between events that don't supply it.
-class ElapsedTimer: public QObject {
+class QS_API ElapsedTimer: public QObject {
 	Q_OBJECT;
 	QML_ELEMENT;
 

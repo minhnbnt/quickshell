@@ -5,6 +5,7 @@
 #include <qdebug.h>
 #include <qlist.h>
 #include <qtypes.h>
+#include "../../core/export.h"
 
 struct DBusMenuLayout {
 	qint32 id = 0;
@@ -28,16 +29,16 @@ struct DBusMenuItemPropertyNames {
 
 using DBusMenuItemPropertyNamesList = QList<DBusMenuItemPropertyNames>;
 
-const QDBusArgument& operator>>(const QDBusArgument& argument, DBusMenuLayout& layout);
-const QDBusArgument& operator<<(QDBusArgument& argument, const DBusMenuLayout& layout);
-const QDBusArgument& operator>>(const QDBusArgument& argument, DBusMenuItemProperties& item);
-const QDBusArgument& operator<<(QDBusArgument& argument, const DBusMenuItemProperties& item);
-const QDBusArgument& operator>>(const QDBusArgument& argument, DBusMenuItemPropertyNames& names);
-const QDBusArgument& operator<<(QDBusArgument& argument, const DBusMenuItemPropertyNames& names);
+QS_API const QDBusArgument& operator>>(const QDBusArgument& argument, DBusMenuLayout& layout);
+QS_API const QDBusArgument& operator<<(QDBusArgument& argument, const DBusMenuLayout& layout);
+QS_API const QDBusArgument& operator>>(const QDBusArgument& argument, DBusMenuItemProperties& item);
+QS_API const QDBusArgument& operator<<(QDBusArgument& argument, const DBusMenuItemProperties& item);
+QS_API const QDBusArgument& operator>>(const QDBusArgument& argument, DBusMenuItemPropertyNames& names);
+QS_API const QDBusArgument& operator<<(QDBusArgument& argument, const DBusMenuItemPropertyNames& names);
 
-QDebug operator<<(QDebug debug, const DBusMenuLayout& layout);
-QDebug operator<<(QDebug debug, const DBusMenuItemProperties& item);
-QDebug operator<<(QDebug debug, const DBusMenuItemPropertyNames& names);
+QS_API QDebug operator<<(QDebug debug, const DBusMenuLayout& layout);
+QS_API QDebug operator<<(QDebug debug, const DBusMenuItemProperties& item);
+QS_API QDebug operator<<(QDebug debug, const DBusMenuItemPropertyNames& names);
 
 Q_DECLARE_METATYPE(DBusMenuLayout);
 Q_DECLARE_METATYPE(DBusMenuIdList);

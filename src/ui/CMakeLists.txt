@@ -7,6 +7,7 @@ qt_add_qml_module(quickshell-ui
 	URI Quickshell._InternalUi
 	VERSION 0.1
 	DEPENDENCIES QtQuick
+	PLUGIN_TYPE DYNAMIC
 	QML_FILES
 		Tooltip.qml
 		ReloadPopup.qml
@@ -15,4 +16,4 @@ qt_add_qml_module(quickshell-ui
 qs_module_pch(quickshell-ui SET large)
 
 target_link_libraries(quickshell-ui PRIVATE Qt::Quick)
-target_link_libraries(quickshell PRIVATE quickshell-uiplugin)
+target_link_libraries(quickshell PRIVATE quickshell-ui)

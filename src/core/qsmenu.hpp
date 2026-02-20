@@ -9,13 +9,14 @@
 #include <qtypes.h>
 
 #include "doc.hpp"
+#include "export.h"
 #include "model.hpp"
 
 namespace qs::menu {
 
 ///! Button type associated with a QsMenuEntry.
 /// See @@QsMenuEntry.buttonType.
-class QsMenuButtonType: public QObject {
+class QS_API QsMenuButtonType: public QObject {
 	Q_OBJECT;
 	QML_ELEMENT;
 	QML_SINGLETON;
@@ -38,7 +39,7 @@ class QsMenuEntry;
 
 ///! Menu handle for QsMenuOpener
 /// See @@QsMenuOpener.
-class QsMenuHandle: public QObject {
+class QS_API QsMenuHandle: public QObject {
 	Q_OBJECT;
 	QML_ELEMENT;
 	QML_UNCREATABLE("");
@@ -55,7 +56,7 @@ signals:
 	void menuChanged();
 };
 
-class QsMenuEntry: public QsMenuHandle {
+class QS_API QsMenuEntry: public QsMenuHandle {
 	Q_OBJECT;
 	/// If this menu item should be rendered as a separator between other items.
 	///
@@ -130,7 +131,7 @@ private:
 };
 
 ///! Provides access to children of a QsMenuEntry
-class QsMenuOpener: public QObject {
+class QS_API QsMenuOpener: public QObject {
 	Q_OBJECT;
 	/// The menu to retrieve children from.
 	Q_PROPERTY(qs::menu::QsMenuHandle* menu READ menu WRITE setMenu NOTIFY menuChanged);

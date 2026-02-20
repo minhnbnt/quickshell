@@ -16,7 +16,7 @@ qt_add_dbus_interface(DBUS_INTERFACES
 	dbus_device
 )
 
-qt_add_library(quickshell-bluetooth STATIC
+qt_add_library(quickshell-bluetooth SHARED
 	adapter.cpp
 	bluez.cpp
 	device.cpp
@@ -27,8 +27,10 @@ qt_add_qml_module(quickshell-bluetooth
 	URI Quickshell.Bluetooth
 	VERSION 0.1
 	DEPENDENCIES QtQml
+	PLUGIN_TYPE DYNAMIC
 )
 
+target_link_libraries(quickshell-bluetoothplugin PRIVATE quickshell)
 install_qml_module(quickshell-bluetooth)
 
 # dbus headers
@@ -37,6 +39,6 @@ target_include_directories(quickshell-bluetooth PRIVATE ${CMAKE_CURRENT_BINARY_D
 target_link_libraries(quickshell-bluetooth PRIVATE Qt::Qml Qt::DBus)
 qs_add_link_dependencies(quickshell-bluetooth quickshell-dbus)
 
-qs_module_pch(quickshell-bluetooth SET dbus)
+qs_pch(quickshell-bluetooth SET dbus)
 
-target_link_libraries(quickshell PRIVATE quickshell-bluetoothplugin)
+target_link_libraries(quickshell PRIVATE quickshell-bluetooth)

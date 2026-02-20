@@ -6,12 +6,13 @@
 #include <qloggingcategory.h>
 #include <qvector.h>
 
+#include "export.h"
 #include "logcat.hpp"
 
 QS_DECLARE_LOGGING_CATEGORY(logQmlScanner);
 
 // expects canonical paths
-class QmlScanner {
+class QS_API QmlScanner {
 public:
 	QmlScanner() = default;
 	QmlScanner(const QDir& rootPath): rootPath(rootPath) {}

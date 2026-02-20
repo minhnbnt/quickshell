@@ -33,7 +33,7 @@ class ProxyWindowContentItem;
 ///
 /// [ShellWindow]: ../shellwindow
 /// [FloatingWindow]: ../floatingwindow
-class ProxyWindowBase: public Reloadable {
+class QS_API ProxyWindowBase: public Reloadable {
 	Q_OBJECT;
 	// clang-format off
 	/// The QtQuick window backing this window.
@@ -222,7 +222,7 @@ private:
 	void updateMask();
 };
 
-class ProxyWindowAttached: public QsWindowAttached {
+class QS_API ProxyWindowAttached: public QsWindowAttached {
 	Q_OBJECT;
 
 public:
@@ -242,7 +242,7 @@ private:
 	void setWindow(ProxyWindowBase* window);
 };
 
-class ProxiedWindow: public QQuickWindow {
+class QS_API ProxiedWindow: public QQuickWindow {
 	Q_OBJECT;
 
 public:
@@ -265,7 +265,7 @@ private:
 	ProxyWindowBase* mProxy;
 };
 
-class ProxyWindowContentItem: public QQuickItem {
+class QS_API ProxyWindowContentItem: public QQuickItem {
 	Q_OBJECT;
 
 signals:

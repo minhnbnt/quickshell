@@ -19,6 +19,7 @@
 
 #include "../window/proxywindow.hpp"
 #include "doc.hpp"
+#include "export.h"
 #include "types.hpp"
 
 ///! Adjustment strategy for popups that do not fit on screen.
@@ -61,7 +62,7 @@ Q_DECLARE_FLAGS(Flags, Enum);
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(PopupAdjustment::Flags);
 
-struct PopupAnchorState {
+struct QS_API PopupAnchorState {
 	bool operator==(const PopupAnchorState& other) const;
 
 	QRect rect = {0, 0, 1, 1};
@@ -73,7 +74,7 @@ struct PopupAnchorState {
 };
 
 ///! Anchorpoint or positioner for popup windows.
-class PopupAnchor: public QObject {
+class QS_API PopupAnchor: public QObject {
 	Q_OBJECT;
 	// clang-format off
 	/// The window to anchor / attach the popup to. Setting this property unsets @@item.
@@ -204,7 +205,7 @@ private:
 	Q_OBJECT_BINDABLE_PROPERTY(PopupAnchor, ProxyWindowBase*, bProxyWindow);
 };
 
-class PopupPositioner {
+class QS_API PopupPositioner {
 public:
 	explicit PopupPositioner() = default;
 	virtual ~PopupPositioner() = default;

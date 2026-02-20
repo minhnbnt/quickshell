@@ -32,7 +32,7 @@ using menu::QsMenuEntry;
 class DBusMenu;
 class DBusMenuItem;
 
-class DBusMenuPngImage: public QsIndexedImageHandle {
+class QS_API DBusMenuPngImage: public QsIndexedImageHandle {
 public:
 	explicit DBusMenuPngImage(): QsIndexedImageHandle(QQuickImageProvider::Image) {}
 

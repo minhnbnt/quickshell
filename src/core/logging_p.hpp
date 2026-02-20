@@ -11,6 +11,7 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
+#include "export.h"
 #include "logging.hpp"
 #include "logging_qtprivate.hpp"
 #include "ringbuf.hpp"
@@ -34,7 +35,7 @@ enum CompressedLogType : quint8 {
 CompressedLogType compressedTypeOf(QtMsgType type);
 QtMsgType typeOfCompressed(CompressedLogType type);
 
-class WriteBuffer {
+class QS_API WriteBuffer {
 public:
 	void setDevice(QIODevice* device);
 	[[nodiscard]] bool hasDevice() const;
@@ -50,7 +51,7 @@ private:
 	QByteArray buffer;
 };
 
-class DeviceReader {
+class QS_API DeviceReader {
 public:
 	void setDevice(QIODevice* device);
 	[[nodiscard]] bool hasDevice() const;
@@ -67,7 +68,7 @@ private:
 	QIODevice* device = nullptr;
 };
 
-class EncodedLogWriter {
+class QS_API EncodedLogWriter {
 public:
 	void setDevice(QIODevice* target);
 	[[nodiscard]] bool writeHeader();
@@ -88,7 +89,7 @@ private:
 	HashBuffer<LogMessage> recentMessages {256};
 };
 
-class EncodedLogReader {
+class QS_API EncodedLogReader {
 public:
 	void setDevice(QIODevice* source);
 	[[nodiscard]] bool readHeader(bool* success, quint8* logVersion, quint8* readerVersion);
@@ -107,7 +108,7 @@ private:
 	RingBuffer<LogMessage> recentMessages {256};
 };
 
-class ThreadLogging: public QObject {
+class QS_API ThreadLogging: public QObject {
 	Q_OBJECT;
 
 public:
@@ -129,7 +130,7 @@ private:
 
 class LogFollower;
 
-class LogReader {
+class QS_API LogReader {
 public:
 	explicit LogReader(
 	    QFile* file,
@@ -156,7 +157,7 @@ private:
 	friend class LogFollower;
 };
 
-class LogFollower: public QObject {
+class QS_API LogFollower: public QObject {
 	Q_OBJECT;
 
 public:

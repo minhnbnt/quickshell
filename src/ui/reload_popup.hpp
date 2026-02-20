@@ -10,7 +10,7 @@
 
 namespace qs::ui {
 
-class ReloadPopup: public QObject {
+class QS_API ReloadPopup: public QObject {
 	Q_OBJECT;
 	QML_NAMED_ELEMENT(ReloadPopupInfo);
 	QML_UNCREATABLE("")
@@ -21,7 +21,7 @@ class ReloadPopup: public QObject {
 public:
 	Q_INVOKABLE void closed();
 
-	static void spawnPopup(QString instanceId, bool failed, QString errorString);
+	static QS_API void spawnPopup(QString instanceId, bool failed, QString errorString);
 
 private:
 	ReloadPopup(QString instanceId, bool failed, QString errorString);

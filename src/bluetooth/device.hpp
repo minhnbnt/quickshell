@@ -11,7 +11,7 @@
 namespace qs::bluetooth {
 
 ///! Connection state of a Bluetooth device.
-class BluetoothDeviceState: public QObject {
+class QS_API BluetoothDeviceState: public QObject {
 	Q_OBJECT;
 	QML_ELEMENT;
 	QML_SINGLETON;

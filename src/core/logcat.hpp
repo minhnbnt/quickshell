@@ -3,8 +3,10 @@
 #include <qlogging.h>
 #include <qloggingcategory.h>
 
+#include "export.h"
+
 namespace qs::log {
-void initLogCategoryLevel(const char* name, QtMsgType defaultLevel = QtDebugMsg);
+QS_API void initLogCategoryLevel(const char* name, QtMsgType defaultLevel = QtDebugMsg);
 }
 
 // NOLINTNEXTLINE(cppcoreguidelines-macro-usage)

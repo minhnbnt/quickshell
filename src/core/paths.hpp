@@ -4,17 +4,18 @@
 #include <qpair.h>
 #include <qtypes.h>
 
+#include "export.h"
 #include "instanceinfo.hpp"
 
-struct InstanceLockInfo {
+struct QS_API InstanceLockInfo {
 	pid_t pid = -1;
 	InstanceInfo instance;
 };
 
-QDataStream& operator<<(QDataStream& stream, const InstanceLockInfo& info);
-QDataStream& operator>>(QDataStream& stream, InstanceLockInfo& info);
+QS_API QDataStream& operator<<(QDataStream& stream, const InstanceLockInfo& info);
+QS_API QDataStream& operator>>(QDataStream& stream, InstanceLockInfo& info);
 
-class QsPaths {
+class QS_API QsPaths {
 public:
 	static QsPaths* instance();
 	static void init(

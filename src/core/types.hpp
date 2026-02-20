@@ -9,7 +9,9 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
-class Box {
+#include "export.h"
+
+class QS_API Box {
 	Q_GADGET;
 	Q_PROPERTY(qint32 x MEMBER x);
 	Q_PROPERTY(qint32 y MEMBER y);
@@ -48,9 +50,9 @@ public:
 	[[nodiscard]] bool isEmpty() const { return this->w == 0 && this->h == 0; }
 };
 
-QDebug operator<<(QDebug debug, const Box& box);
+QS_API QDebug operator<<(QDebug debug, const Box& box);
 
-class Margins {
+class QS_API Margins {
 	Q_GADGET;
 	Q_PROPERTY(qint32 left MEMBER left);
 	Q_PROPERTY(qint32 right MEMBER right);
@@ -93,8 +95,8 @@ enum Enum : quint8 {
 Q_ENUM_NS(Enum);
 Q_DECLARE_FLAGS(Flags, Enum);
 
-Qt::Edges toQt(Flags edges);
-bool isOpposing(Flags edges);
+QS_API Qt::Edges toQt(Flags edges);
+QS_API bool isOpposing(Flags edges);
 
 }; // namespace Edges
 

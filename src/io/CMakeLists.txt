@@ -25,9 +25,9 @@ qs_add_module_deps_light(quickshell-io Quickshell)
 install_qml_module(quickshell-io)
 
 target_link_libraries(quickshell-io PRIVATE Qt::Quick quickshell-ipc)
-target_link_libraries(quickshell PRIVATE quickshell-ioplugin)
+target_link_libraries(quickshell PRIVATE quickshell-io)
 
-qs_module_pch(quickshell-io)
+qs_pch(quickshell-io)
 
 if (BUILD_TESTING)
 	add_subdirectory(test)

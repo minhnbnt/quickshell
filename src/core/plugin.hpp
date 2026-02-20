@@ -4,9 +4,11 @@
 #include <qfunctionpointer.h>
 #include <qlist.h>
 
+#include "export.h"
+
 class EngineGeneration;
 
-class QsEnginePlugin {
+class QS_API QsEnginePlugin {
 public:
 	QsEnginePlugin() = default;
 	virtual ~QsEnginePlugin() = default;

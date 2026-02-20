@@ -18,7 +18,10 @@ qt_add_qml_module(quickshell-dbusmenu
 	URI Quickshell.DBusMenu
 	VERSION 0.1
 	DEPENDENCIES QtQml
+	PLUGIN_TYPE DYNAMIC
 )
+
+target_link_libraries(quickshell-dbusmenuplugin PRIVATE quickshell)
 
 qs_add_module_deps_light(quickshell-dbusmenu Quickshell)
 
@@ -32,4 +35,4 @@ qs_add_link_dependencies(quickshell-dbusmenu quickshell-dbus)
 
 qs_module_pch(quickshell-dbusmenu SET dbus)
 
-target_link_libraries(quickshell PRIVATE quickshell-dbusmenuplugin)
+target_link_libraries(quickshell PRIVATE quickshell-dbusmenu)
