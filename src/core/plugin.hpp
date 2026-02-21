@@ -39,7 +39,6 @@ public:
 			plugin.init();                                                                               \
 			plugin.registerTypes();                                                                      \
 		}                                                                                              \
-		qInfo() << "Registered plugin: " << plugin.name(); \
 		QsEnginePlugin::registerPlugin(plugin);                                                        \
 	}
 // NOLINTEND
