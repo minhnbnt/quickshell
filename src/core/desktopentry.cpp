@@ -20,7 +20,7 @@
 #include <qtmetamacros.h>
 #include <ranges>
 
-#include "../io/processcore.hpp"
+#include "processcore.hpp"
 #include "desktopentrymonitor.hpp"
 #include "logcat.hpp"
 #include "model.hpp"

@@ -7,7 +7,7 @@
 #include <qvariant.h>
 #include <qwindow.h>
 
-#include "../core/popupanchor.hpp"
+#include "../window/menu/popupanchor.hpp"
 #include "../core/types.hpp"
 #include "xdgshell.hpp"
 

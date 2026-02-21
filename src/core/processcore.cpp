@@ -5,7 +5,7 @@
 #include <qprocess.h>
 #include <qvariant.h>
 
-#include "../core/common.hpp"
+#include "common.hpp"
 
 namespace qs::io::process {
 

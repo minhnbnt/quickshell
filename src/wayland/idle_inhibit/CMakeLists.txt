@@ -1,4 +1,4 @@
-qt_add_library(quickshell-wayland-idle-inhibit STATIC
+qt_add_library(quickshell-wayland-idle-inhibit SHARED
 	proto.cpp
 	inhibitor.cpp
 )
@@ -8,6 +8,8 @@ qt_add_qml_module(quickshell-wayland-idle-inhibit
 	VERSION 0.1
 	DEPENDENCIES QtQuick
 )
+
+target_link_libraries(quickshell-wayland-idle-inhibitplugin PRIVATE quickshell)
 
 install_qml_module(quickshell-wayland-idle-inhibit)
 
@@ -20,6 +22,6 @@ target_link_libraries(quickshell-wayland-idle-inhibit PRIVATE
 	wlp-idle-inhibit
 )
 
-qs_module_pch(quickshell-wayland-idle-inhibit SET large)
+qs_pch(quickshell-wayland-idle-inhibit SET large)
 
-target_link_libraries(quickshell PRIVATE quickshell-wayland-idle-inhibitplugin)
+target_link_libraries(quickshell PRIVATE quickshell-wayland-idle-inhibit)

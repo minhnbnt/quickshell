@@ -15,7 +15,7 @@
 
 namespace qs::wayland::layershell {
 
-struct LayerSurfaceState {
+struct QS_API LayerSurfaceState {
 	QSize implicitSize;
 	Anchors anchors;
 	Margins margins;
@@ -33,7 +33,7 @@ struct LayerSurfaceState {
 
 class LayerSurface;
 
-class LayerSurfaceBridge: public QObject {
+class QS_API LayerSurfaceBridge: public QObject {
 public:
 	LayerSurfaceState state;
 
@@ -53,7 +53,7 @@ private:
 	friend class LayerSurface;
 };
 
-class LayerSurface
+class QS_API LayerSurface
     : public QtWaylandClient::QWaylandShellSurface
     , public QtWayland::zwlr_layer_surface_v1 {
 public:

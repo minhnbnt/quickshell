@@ -16,7 +16,7 @@
 #include "../../core/doc.hpp"
 #include "../../core/imageprovider.hpp"
 #include "../../core/model.hpp"
-#include "../../core/qsmenu.hpp"
+#include "../../window/menu/qsmenu.hpp"
 #include "../properties.hpp"
 #include "dbus_menu_types.hpp"
 

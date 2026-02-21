@@ -1,7 +1,7 @@
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(pipewire REQUIRED IMPORTED_TARGET libpipewire-0.3)
 
-qt_add_library(quickshell-service-pipewire STATIC
+qt_add_library(quickshell-service-pipewire SHARED
 	qml.cpp
 	peak.cpp
 	core.cpp
@@ -20,6 +20,8 @@ qt_add_qml_module(quickshell-service-pipewire
 	DEPENDENCIES QtQml
 )
 
+target_link_libraries(quickshell-service-pipewireplugin PRIVATE quickshell)
+
 qs_add_module_deps_light(quickshell-service-pipewire Quickshell)
 
 install_qml_module(quickshell-service-pipewire)
@@ -29,6 +31,6 @@ target_link_libraries(quickshell-service-pipewire PRIVATE
 	Qt::Quick # pch
 )
 
-qs_module_pch(quickshell-service-pipewire)
+qs_pch(quickshell-service-pipewire)
 
-target_link_libraries(quickshell PRIVATE quickshell-service-pipewireplugin)
+target_link_libraries(quickshell PRIVATE quickshell-service-pipewire)

@@ -33,6 +33,11 @@ void Reloadable::componentComplete() {
 			    &Reloadable::onReloadFinished
 			);
 		}
+	} else {
+		// No EngineGeneration found (standalone / PySide6 mode).
+		// Trigger onReload immediately so reloadComplete becomes true
+		// and windows can actually become visible.
+		this->reload(nullptr);
 	}
 }
 

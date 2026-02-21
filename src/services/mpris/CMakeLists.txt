@@ -18,7 +18,7 @@ qt_add_dbus_interface(DBUS_INTERFACES
 	dbus_player_app
 )
 
-qt_add_library(quickshell-service-mpris STATIC
+qt_add_library(quickshell-service-mpris SHARED
 	player.cpp
 	watcher.cpp
 	${DBUS_INTERFACES}
@@ -29,9 +29,11 @@ target_include_directories(quickshell-service-mpris PRIVATE ${CMAKE_CURRENT_BINA
 
 qt_add_qml_module(quickshell-service-mpris
 	URI Quickshell.Services.Mpris
-  VERSION 0.1
+	VERSION 0.1
 	DEPENDENCIES QtQml
 )
+
+target_link_libraries(quickshell-service-mprisplugin PRIVATE quickshell)
 
 qs_add_module_deps_light(quickshell-service-mpris Quickshell)
 
@@ -40,6 +42,6 @@ install_qml_module(quickshell-service-mpris)
 target_link_libraries(quickshell-service-mpris PRIVATE Qt::Qml Qt::DBus)
 qs_add_link_dependencies(quickshell-service-mpris quickshell-dbus)
 
-qs_module_pch(quickshell-service-mpris SET dbus)
+qs_pch(quickshell-service-mpris SET dbus)
 
-target_link_libraries(quickshell PRIVATE quickshell-service-mprisplugin)
+target_link_libraries(quickshell PRIVATE quickshell-service-mpris)

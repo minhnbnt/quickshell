@@ -5,7 +5,7 @@
 #include <qqmllist.h>
 #include <qtmetamacros.h>
 
-#include "model.hpp"
+#include "../../core/model.hpp"
 #include "platformmenu.hpp"
 
 using namespace qs::menu::platform;

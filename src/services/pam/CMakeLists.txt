@@ -1,4 +1,4 @@
-qt_add_library(quickshell-service-pam STATIC
+qt_add_library(quickshell-service-pam SHARED
 	qml.cpp
 	conversation.cpp
 	ipc.cpp
@@ -11,6 +11,8 @@ qt_add_qml_module(quickshell-service-pam
 	DEPENDENCIES QtQml
 )
 
+target_link_libraries(quickshell-service-pamplugin PRIVATE quickshell)
+
 install_qml_module(quickshell-service-pam)
 
 target_link_libraries(quickshell-service-pam PRIVATE
@@ -18,6 +20,6 @@ target_link_libraries(quickshell-service-pam PRIVATE
 	Qt::Quick # pch
 )
 
-qs_module_pch(quickshell-service-pam)
+qs_pch(quickshell-service-pam)
 
-target_link_libraries(quickshell PRIVATE quickshell-service-pamplugin)
+target_link_libraries(quickshell PRIVATE quickshell-service-pam)

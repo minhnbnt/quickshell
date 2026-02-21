@@ -1,4 +1,4 @@
-qt_add_library(quickshell-wayland-idle-notify STATIC
+qt_add_library(quickshell-wayland-idle-notify SHARED
 	proto.cpp
 	monitor.cpp
 )
@@ -8,6 +8,8 @@ qt_add_qml_module(quickshell-wayland-idle-notify
 	VERSION 0.1
 	DEPENDENCIES QtQuick
 )
+
+target_link_libraries(quickshell-wayland-idle-notifyplugin PRIVATE quickshell)
 
 install_qml_module(quickshell-wayland-idle-notify)
 
@@ -20,6 +22,6 @@ target_link_libraries(quickshell-wayland-idle-notify PRIVATE
 	wlp-idle-notify
 )
 
-qs_module_pch(quickshell-wayland-idle-notify SET large)
+qs_pch(quickshell-wayland-idle-notify SET large)
 
-target_link_libraries(quickshell PRIVATE quickshell-wayland-idle-notifyplugin)
+target_link_libraries(quickshell PRIVATE quickshell-wayland-idle-notify)

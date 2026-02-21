@@ -1,4 +1,4 @@
-qt_add_library(quickshell-wayland-shortcuts-inhibit STATIC
+qt_add_library(quickshell-wayland-shortcuts-inhibit SHARED
 	proto.cpp
 	inhibitor.cpp
 )
@@ -8,6 +8,8 @@ qt_add_qml_module(quickshell-wayland-shortcuts-inhibit
 	VERSION 0.1
 	DEPENDENCIES QtQuick
 )
+
+target_link_libraries(quickshell-wayland-shortcuts-inhibitplugin PRIVATE quickshell)
 
 install_qml_module(quickshell-wayland-shortcuts-inhibit)
 
@@ -20,6 +22,6 @@ target_link_libraries(quickshell-wayland-shortcuts-inhibit PRIVATE
 	wlp-shortcuts-inhibit
 )
 
-qs_module_pch(quickshell-wayland-shortcuts-inhibit SET large)
+qs_pch(quickshell-wayland-shortcuts-inhibit SET large)
 
-target_link_libraries(quickshell PRIVATE quickshell-wayland-shortcuts-inhibitplugin)
+target_link_libraries(quickshell PRIVATE quickshell-wayland-shortcuts-inhibit)

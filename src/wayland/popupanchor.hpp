@@ -2,7 +2,7 @@
 
 #include <qwindow.h>
 
-#include "../core/popupanchor.hpp"
+#include "../window/menu/popupanchor.hpp"
 
 class WaylandPopupPositioner: public PopupPositioner {
 public:

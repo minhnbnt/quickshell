@@ -2,7 +2,7 @@
 #include <qmenu.h>
 #include <qpoint.h>
 
-#include "export.h"
+#include "../../core/export.h"
 
 namespace qs::menu::platform {
 

@@ -35,6 +35,11 @@ public:
 #define QS_REGISTER_PLUGIN(clazz)                                                                  \
 	[[gnu::constructor]] void qsInitPlugin() {                                                       \
 		static clazz plugin;                                                                           \
+		if (plugin.applies()) {                                                                        \
+			plugin.init();                                                                               \
+			plugin.registerTypes();                                                                      \
+		}                                                                                              \
+		qInfo() << "Registered plugin: " << plugin.name(); \
 		QsEnginePlugin::registerPlugin(plugin);                                                        \
 	}
 // NOLINTEND

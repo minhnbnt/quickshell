@@ -6,7 +6,7 @@ qt_add_dbus_adaptor(DBUS_INTERFACES
 	DBusNotificationServer
 )
 
-qt_add_library(quickshell-service-notifications STATIC
+qt_add_library(quickshell-service-notifications SHARED
 	server.cpp
 	notification.cpp
 	dbusimage.cpp
@@ -22,10 +22,12 @@ qt_add_qml_module(quickshell-service-notifications
 	VERSION 0.1
 )
 
+target_link_libraries(quickshell-service-notificationsplugin PRIVATE quickshell)
+
 qs_add_module_deps_light(quickshell-service-notifications Quickshell)
 install_qml_module(quickshell-service-notifications)
 
 target_link_libraries(quickshell-service-notifications PRIVATE Qt::Quick Qt::DBus)
-target_link_libraries(quickshell PRIVATE quickshell-service-notificationsplugin)
+target_link_libraries(quickshell PRIVATE quickshell-service-notifications)
 
-qs_module_pch(quickshell-service-notifications SET dbus)
+qs_pch(quickshell-service-notifications SET dbus)

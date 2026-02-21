@@ -4,7 +4,7 @@ pkg_check_modules(gobject REQUIRED IMPORTED_TARGET gobject-2.0)
 pkg_check_modules(polkit_agent REQUIRED IMPORTED_TARGET polkit-agent-1)
 pkg_check_modules(polkit REQUIRED IMPORTED_TARGET polkit-gobject-1)
 
-qt_add_library(quickshell-service-polkit STATIC
+qt_add_library(quickshell-service-polkit SHARED
 	agentimpl.cpp
 	flow.cpp
 	identity.cpp
@@ -19,6 +19,8 @@ qt_add_qml_module(quickshell-service-polkit
 	DEPENDENCIES QtQml
 )
 
+target_link_libraries(quickshell-service-polkitplugin PRIVATE quickshell)
+
 install_qml_module(quickshell-service-polkit)
 
 target_link_libraries(quickshell-service-polkit PRIVATE
@@ -30,6 +32,6 @@ target_link_libraries(quickshell-service-polkit PRIVATE
 	PkgConfig::polkit
 )
 
-qs_module_pch(quickshell-service-polkit)
+qs_pch(quickshell-service-polkit)
 
-target_link_libraries(quickshell PRIVATE quickshell-service-polkitplugin)
+target_link_libraries(quickshell PRIVATE quickshell-service-polkit)

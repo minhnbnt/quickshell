@@ -8,7 +8,7 @@
 #include <qtypes.h>
 
 #include "../core/doc.hpp"
-#include "../core/popupanchor.hpp"
+#include "menu/popupanchor.hpp"
 #include "../core/qmlscreen.hpp"
 #include "proxywindow.hpp"
 #include "windowinterface.hpp"

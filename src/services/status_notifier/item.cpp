@@ -22,7 +22,7 @@
 #include "../../core/iconimageprovider.hpp"
 #include "../../core/imageprovider.hpp"
 #include "../../core/logcat.hpp"
-#include "../../core/platformmenu.hpp"
+#include "../../window/menu/platformmenu.hpp"
 #include "../../dbus/dbusmenu/dbusmenu.hpp"
 #include "../../dbus/properties.hpp"
 #include "dbus_item.h"

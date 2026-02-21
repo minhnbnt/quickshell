@@ -9,14 +9,10 @@
 #include <qobject.h>
 #include <qqmlcomponent.h>
 #include <qqmlengine.h>
-#include <qquickitem.h>
 #include <qtmetamacros.h>
 #include <qurl.h>
 
-#include "../ui/reload_popup.hpp"
-#include "../window/floatingwindow.hpp"
 #include "generation.hpp"
-#include "instanceinfo.hpp"
 #include "qmlglobal.hpp"
 #include "scan.hpp"
 #include "toolsupport.hpp"
@@ -26,13 +22,6 @@ RootWrapper::RootWrapper(QString rootPath, QString shellId)
     , rootPath(std::move(rootPath))
     , shellId(std::move(shellId))
     , originalWorkingDirectory(QDir::current().absolutePath()) {
-	QObject::connect(
-	    QuickshellSettings::instance(),
-	    &QuickshellSettings::watchFilesChanged,
-	    this,
-	    &RootWrapper::onWatchFilesChanged
-	);
-
 	QObject::connect(
 	    &this->configDirWatcher,
 	    &QFileSystemWatcher::directoryChanged,
@@ -126,34 +115,15 @@ void RootWrapper::reloadGraph(bool hard) {
 				qInfo() << "Watching additional files picked up in reload for changes...";
 			}
 
-			auto showPopup = true;
 			if (this->generation->qsgInstance != nullptr) {
-				this->generation->qsgInstance->clearReloadPopupInhibit();
 				emit this->generation->qsgInstance->reloadFailed(errorString);
-				showPopup = !this->generation->qsgInstance->isReloadPopupInhibited();
 			}
-
-			if (showPopup)
-				qs::ui::ReloadPopup::spawnPopup(InstanceInfo::CURRENT.instanceId, true, errorString);
-		}
-
-		if (this->generation != nullptr && this->generation->qsgInstance != nullptr) {
-			emit this->generation->qsgInstance->reloadFailed(errorString);
 		}
 
 		return;
 	}
 
 	auto* newRoot = component.beginCreate(generation->engine->rootContext());
-
-	if (auto* item = qobject_cast<QQuickItem*>(newRoot)) {
-		auto* window = new FloatingWindowInterface();
-		item->setParent(window);
-		item->setParentItem(window->contentItem());
-		window->setWidth(static_cast<int>(item->width()));
-		window->setHeight(static_cast<int>(item->height()));
-		newRoot = window;
-	}
 
 	generation->root = newRoot;
 
@@ -175,38 +145,15 @@ void RootWrapper::reloadGraph(bool hard) {
 	qInfo() << "Configuration Loaded";
 
 	QObject::connect(this->generation, &QObject::destroyed, this, &RootWrapper::generationDestroyed);
-	QObject::connect(
-	    this->generation,
-	    &EngineGeneration::filesChanged,
-	    this,
-	    &RootWrapper::onWatchedFilesChanged
-	);
-
-	this->onWatchFilesChanged();
 
 	if (isReload) {
-		auto showPopup = true;
-
 		if (this->generation->qsgInstance != nullptr) {
-			this->generation->qsgInstance->clearReloadPopupInhibit();
 			emit this->generation->qsgInstance->reloadCompleted();
-			showPopup = !this->generation->qsgInstance->isReloadPopupInhibited();
 		}
-
-		if (showPopup) qs::ui::ReloadPopup::spawnPopup(InstanceInfo::CURRENT.instanceId, false, "");
 	}
 }
 
 void RootWrapper::generationDestroyed() { this->generation = nullptr; }
-
-void RootWrapper::onWatchFilesChanged() {
-	auto watchFiles = QuickshellSettings::instance()->watchFiles();
-	if (this->generation != nullptr) {
-		this->generation->setWatchingFiles(watchFiles);
-	}
-}
-
-void RootWrapper::onWatchedFilesChanged() { this->reloadGraph(false); }
 
 void RootWrapper::updateTooling() {
 	if (!this->generation) return;

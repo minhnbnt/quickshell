@@ -1,4 +1,4 @@
-qt_add_library(quickshell-i3 STATIC)
+qt_add_library(quickshell-i3 SHARED)
 
 target_link_libraries(quickshell-i3 PRIVATE ${QT_DEPS})
 
@@ -15,9 +15,11 @@ qt_add_qml_module(quickshell-i3
 	IMPORTS ${I3_MODULES}
 )
 
+target_link_libraries(quickshell-i3plugin PRIVATE quickshell)
+
 install_qml_module(quickshell-i3)
 
 qs_pch(quickshell-i3)
 qs_pch(quickshell-i3plugin)
 
-target_link_libraries(quickshell PRIVATE quickshell-i3plugin)
+target_link_libraries(quickshell PRIVATE quickshell-i3)

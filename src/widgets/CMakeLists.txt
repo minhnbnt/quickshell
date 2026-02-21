@@ -1,4 +1,4 @@
-qt_add_library(quickshell-widgets STATIC
+qt_add_library(quickshell-widgets SHARED
 	cliprect.cpp
 	wrapper.cpp
 	marginwrapper.cpp
@@ -8,8 +8,7 @@ qt_add_qml_module(quickshell-widgets
 	URI Quickshell.Widgets
 	VERSION 0.1
 	DEPENDENCIES QtQml
-	PLUGIN_TYPE DYNAMIC
-	
+
 	QML_FILES
 		IconImage.qml
 		ClippingRectangle.qml

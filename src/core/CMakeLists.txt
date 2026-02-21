@@ -1,4 +1,4 @@
-qt_add_library(quickshell-core STATIC
+qt_add_library(quickshell-core SHARED
 	plugin.cpp
 	shell.cpp
 	variants.cpp
@@ -24,12 +24,9 @@ qt_add_library(quickshell-core STATIC
 	elapsedtimer.cpp
 	desktopentry.cpp
 	desktopentrymonitor.cpp
-	platformmenu.cpp
-	qsmenu.cpp
 	retainable.cpp
-	popupanchor.cpp
+	processcore.cpp
 	types.cpp
-	qsmenuanchor.cpp
 	clock.cpp
 	logging.cpp
 	paths.cpp
@@ -49,7 +46,6 @@ qt_add_qml_module(quickshell-core
 	DEPENDENCIES QtQuick
 	OPTIONAL_IMPORTS Quickshell._Window
 	DEFAULT_IMPORTS Quickshell._Window
-	PLUGIN_TYPE DYNAMIC
 )
 target_link_libraries(quickshell-coreplugin PRIVATE quickshell-core)
 

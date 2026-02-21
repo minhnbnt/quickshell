@@ -4,7 +4,7 @@
 #include <qtclasshelpermacros.h>
 #include <qtmetamacros.h>
 
-#include "export.h"
+#include "../../core/export.h"
 #include "platformmenu.hpp"
 #include "popupanchor.hpp"
 #include "qsmenu.hpp"

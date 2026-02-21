@@ -11,8 +11,8 @@
 #include <qtclasshelpermacros.h>
 #include <qtmetamacros.h>
 
-#include "../core/popupanchor.hpp"
-#include "export.h"
+#include "../../core/export.h"
+#include "popupanchor.hpp"
 #include "qsmenu.hpp"
 
 namespace qs::menu::platform {

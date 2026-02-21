@@ -17,10 +17,11 @@
 #include <qvectornd.h>
 #include <qwindow.h>
 
-#include "../window/proxywindow.hpp"
-#include "doc.hpp"
-#include "export.h"
-#include "types.hpp"
+#include "../../core/doc.hpp"
+#include "../../core/export.h"
+#include "../../core/types.hpp"
+
+#include "../proxywindow.hpp"
 
 ///! Adjustment strategy for popups that do not fit on screen.
 /// Adjustment strategy for popups. See @@PopupAnchor.adjustment.

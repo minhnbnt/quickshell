@@ -6,6 +6,7 @@
 namespace {
 
 class WindowPlugin: public QsEnginePlugin {
+	public:
 	// _Window has to be registered before wayland or x11 modules, otherwise module overlays
 	// will apply in the wrong order.
 	QString name() override { return "window"; }

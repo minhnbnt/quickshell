@@ -15,7 +15,7 @@
 #include <qvariant.h>
 #include <qwindowdefs.h>
 
-#include "../io/processcore.hpp"
+#include "processcore.hpp"
 #include "doc.hpp"
 #include "export.h"
 #include "qmlscreen.hpp"
@@ -215,11 +215,6 @@ public:
 	Q_INVOKABLE [[nodiscard]] QString statePath(const QString& path) const;
 	/// Equivalent to `${Quickshell.cacheDir}/${path}`
 	Q_INVOKABLE [[nodiscard]] QString cachePath(const QString& path) const;
-	/// When called from @@reloadCompleted() or @@reloadFailed(), prevents the
-	/// default reload popup from displaying.
-	///
-	/// The popup can also be blocked by setting `QS_NO_RELOAD_POPUP=1`.
-	Q_INVOKABLE void inhibitReloadPopup() { this->mInhibitReloadPopup = true; }
 	/// Check if Quickshell's version is at least `major.minor` and the listed
 	/// unreleased features are available. If Quickshell is newer than the given version
 	/// it is assumed that all unreleased features are present. The unreleased feature list
@@ -235,9 +230,6 @@ public:
 	/// > ```
 	Q_INVOKABLE static bool hasVersion(qint32 major, qint32 minor, const QStringList& features);
 	Q_INVOKABLE static bool hasVersion(qint32 major, qint32 minor);
-
-	void clearReloadPopupInhibit() { this->mInhibitReloadPopup = false; }
-	[[nodiscard]] bool isReloadPopupInhibited() const { return this->mInhibitReloadPopup; }
 
 	[[nodiscard]] QString shellDir() const;
 	[[nodiscard]] QString configDir() const;
@@ -278,8 +270,6 @@ private slots:
 
 private:
 	QuickshellGlobal(QObject* parent = nullptr);
-
-	bool mInhibitReloadPopup = false;
 
 	static qsizetype screensCount(QQmlListProperty<QuickshellScreenInfo>* prop);
 	static QuickshellScreenInfo* screenAt(QQmlListProperty<QuickshellScreenInfo>* prop, qsizetype i);

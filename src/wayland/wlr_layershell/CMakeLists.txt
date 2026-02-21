@@ -1,4 +1,4 @@
-qt_add_library(quickshell-wayland-layershell STATIC
+qt_add_library(quickshell-wayland-layershell SHARED
 	wlr_layershell.cpp
 	shell_integration.cpp
 	surface.cpp
@@ -10,6 +10,7 @@ qt_add_qml_module(quickshell-wayland-layershell
 	DEPENDENCIES QtQuick
 )
 
+target_link_libraries(quickshell-wayland-layershellplugin PRIVATE quickshell-wayland)
 qs_add_module_deps_light(quickshell-wayland-layershell Quickshell Quickshell.Wayland)
 
 install_qml_module(quickshell-wayland-layershell)
@@ -24,6 +25,6 @@ target_link_libraries(quickshell-wayland-layershell PRIVATE
 	wlp-layer-shell wlp-xdg-shell
 )
 
-qs_module_pch(quickshell-wayland-layershell SET large)
+qs_pch(quickshell-wayland-layershell SET large)
 
-target_link_libraries(quickshell-wayland PRIVATE quickshell-wayland-layershellplugin)
+target_link_libraries(quickshell-wayland PRIVATE quickshell-wayland-layershell)

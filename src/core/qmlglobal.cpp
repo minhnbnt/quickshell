@@ -23,7 +23,7 @@
 #include <qwindowdefs.h>
 #include <unistd.h>
 
-#include "../io/processcore.hpp"
+#include "processcore.hpp"
 #include "generation.hpp"
 #include "iconimageprovider.hpp"
 #include "paths.hpp"

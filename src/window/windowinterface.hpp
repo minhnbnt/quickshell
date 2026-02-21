@@ -233,7 +233,7 @@ public:
 
 	[[nodiscard]] QQmlListProperty<QObject> data() const;
 
-	static QsWindowAttached* qmlAttachedProperties(QObject* object);
+	QS_API static QsWindowAttached* qmlAttachedProperties(QObject* object);
 
 signals:
 	/// This signal is emitted when the window is closed by the user, the display server,

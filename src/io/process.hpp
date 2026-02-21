@@ -13,7 +13,7 @@
 #include "../core/doc.hpp"
 #include "../core/reload.hpp"
 #include "datastream.hpp"
-#include "processcore.hpp"
+#include "../core/processcore.hpp"
 
 // Needed when compiling with clang musl-libc++.
 // Default include paths contain macros that cause name collisions.

@@ -22,8 +22,6 @@ public:
 
 private slots:
 	void generationDestroyed();
-	void onWatchFilesChanged();
-	void onWatchedFilesChanged();
 	void updateTooling();
 
 private:

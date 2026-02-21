@@ -94,7 +94,7 @@ Q_ENUM_NS(Enum);
 /// ```
 ///
 /// [zwlr_layer_shell_v1]: https://wayland.app/protocols/wlr-layer-shell-unstable-v1
-class WlrLayershell: public ProxyWindowBase {
+class QS_API WlrLayershell: public ProxyWindowBase {
 	QSDOC_BASECLASS(PanelWindowInterface);
 	// clang-format off
 	Q_OBJECT;
@@ -207,7 +207,7 @@ private:
 	// clang-format on
 };
 
-class WaylandPanelInterface: public PanelWindowInterface {
+class QS_API WaylandPanelInterface: public PanelWindowInterface {
 	Q_OBJECT;
 
 public:

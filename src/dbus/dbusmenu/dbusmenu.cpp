@@ -23,7 +23,7 @@
 #include "../../core/iconimageprovider.hpp"
 #include "../../core/logcat.hpp"
 #include "../../core/model.hpp"
-#include "../../core/qsmenu.hpp"
+#include "../../window/menu/qsmenu.hpp"
 #include "../../dbus/properties.hpp"
 #include "dbus_menu.h"
 #include "dbus_menu_types.hpp"

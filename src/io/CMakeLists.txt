@@ -1,6 +1,5 @@
-qt_add_library(quickshell-io STATIC
+qt_add_library(quickshell-io SHARED
 	datastream.cpp
-	processcore.cpp
 	process.cpp
 	fileview.cpp
 	jsonadapter.cpp
@@ -20,6 +19,8 @@ qt_add_qml_module(quickshell-io
 	QML_FILES
 		FileView.qml
 )
+
+target_link_libraries(quickshell-ioplugin PRIVATE quickshell)
 
 qs_add_module_deps_light(quickshell-io Quickshell)
 install_qml_module(quickshell-io)

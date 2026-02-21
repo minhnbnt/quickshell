@@ -1,4 +1,4 @@
-qt_add_library(quickshell-hyprland-focus-grab STATIC
+qt_add_library(quickshell-hyprland-focus-grab SHARED
 	manager.cpp
 	grab.cpp
 	qml.cpp
@@ -9,6 +9,8 @@ qt_add_qml_module(quickshell-hyprland-focus-grab
 	VERSION 0.1
 	DEPENDENCIES QtQml
 )
+
+target_link_libraries(quickshell-hyprland-focus-grabplugin PRIVATE quickshell)
 
 qs_add_module_deps_light(quickshell-hyprland-focus-grab Quickshell)
 
@@ -21,6 +23,6 @@ target_link_libraries(quickshell-hyprland-focus-grab PRIVATE
 	wlp-hyprland-focus-grab
 )
 
-qs_module_pch(quickshell-hyprland-focus-grab SET large)
+qs_pch(quickshell-hyprland-focus-grab SET large)
 
-target_link_libraries(quickshell PRIVATE quickshell-hyprland-focus-grabplugin)
+target_link_libraries(quickshell PRIVATE quickshell-hyprland-focus-grab)

@@ -130,12 +130,12 @@ target_link_libraries(quickshell-wayland PRIVATE
 
 target_link_libraries(quickshell-wayland-init PRIVATE Qt::Quick)
 
+# TODO
 qt_add_qml_module(quickshell-wayland
 	URI Quickshell.Wayland
 	VERSION 0.1
 	DEPENDENCIES QtQuick
 	IMPORTS ${WAYLAND_MODULES}
-	PLUGIN_TYPE DYNAMIC
 )
 
 qs_add_module_deps_light(quickshell-wayland Quickshell)

@@ -8,9 +8,9 @@
 #include <qtmetamacros.h>
 #include <qtypes.h>
 
-#include "doc.hpp"
-#include "export.h"
-#include "model.hpp"
+#include "../../core/doc.hpp"
+#include "../../core/export.h"
+#include "../../core/model.hpp"
 
 namespace qs::menu {
 

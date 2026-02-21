@@ -7,7 +7,7 @@
 #include <qtypes.h>
 #include <qwindow.h>
 
-#include "../core/popupanchor.hpp"
+#include "menu/popupanchor.hpp"
 #include "../core/qmlscreen.hpp"
 #include "windowinterface.hpp"
 

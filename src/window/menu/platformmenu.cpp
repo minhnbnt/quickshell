@@ -17,10 +17,10 @@
 #include <qtmetamacros.h>
 #include <qwindow.h>
 
-#include "../window/proxywindow.hpp"
-#include "../window/windowinterface.hpp"
-#include "iconprovider.hpp"
-#include "model.hpp"
+#include "../../core/iconprovider.hpp"
+#include "../../core/model.hpp"
+#include "../proxywindow.hpp"
+#include "../windowinterface.hpp"
 #include "platformmenu_p.hpp"
 #include "popupanchor.hpp"
 #include "qsmenu.hpp"

@@ -10,6 +10,7 @@
 namespace {
 
 class X11Plugin: public QsEnginePlugin {
+	public:
 	QList<QString> dependencies() override { return {"window"}; }
 
 	bool applies() override { return QGuiApplication::platformName() == "xcb"; }

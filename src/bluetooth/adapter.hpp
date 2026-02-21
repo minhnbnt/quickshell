@@ -12,7 +12,7 @@
 namespace qs::bluetooth {
 
 ///! Power state of a Bluetooth adapter.
-class QS_API BluetoothAdapterState: public QObject {
+class BluetoothAdapterState: public QObject {
 	Q_OBJECT;
 	QML_ELEMENT;
 	QML_SINGLETON;

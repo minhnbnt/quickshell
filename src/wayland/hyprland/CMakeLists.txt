@@ -1,4 +1,4 @@
-qt_add_library(quickshell-hyprland STATIC)
+qt_add_library(quickshell-hyprland SHARED)
 
 target_link_libraries(quickshell-hyprland PRIVATE ${QT_DEPS})
 
@@ -30,9 +30,11 @@ qt_add_qml_module(quickshell-hyprland
 	IMPORTS ${HYPRLAND_MODULES}
 )
 
+target_link_libraries(quickshell-hyprlandplugin PRIVATE quickshell)
+
 qs_add_module_deps_light(quickshell-io Quickshell)
 install_qml_module(quickshell-hyprland)
 
 # intentionally no pch as the module is empty
 
-target_link_libraries(quickshell PRIVATE quickshell-hyprlandplugin)
+target_link_libraries(quickshell PRIVATE quickshell-hyprland)

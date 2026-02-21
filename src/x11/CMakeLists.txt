@@ -9,7 +9,6 @@ qt_add_qml_module(quickshell-x11
 	URI Quickshell.X11
 	VERSION 0.1
 	DEPENDENCIES QtQuick
-	PLUGIN_TYPE DYNAMIC
 )
 
 target_link_libraries(quickshell-x11plugin PRIVATE quickshell)

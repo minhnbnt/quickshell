@@ -1,4 +1,4 @@
-qt_add_library(quickshell-wayland-toplevel-management STATIC
+qt_add_library(quickshell-wayland-toplevel-management SHARED
 	manager.cpp
 	handle.cpp
 	qml.cpp
@@ -9,6 +9,8 @@ qt_add_qml_module(quickshell-wayland-toplevel-management
 	VERSION 0.1
 	DEPENDENCIES QtQml
 )
+
+target_link_libraries(quickshell-wayland-toplevel-managementplugin PRIVATE quickshell)
 
 qs_add_module_deps_light(quickshell-wayland-toplevel-management
 	Quickshell Quickshell.Wayland
@@ -23,6 +25,6 @@ target_link_libraries(quickshell-wayland-toplevel-management PRIVATE
 	wlp-foreign-toplevel
 )
 
-qs_module_pch(quickshell-wayland-toplevel-management SET large)
+qs_pch(quickshell-wayland-toplevel-management SET large)
 
-target_link_libraries(quickshell PRIVATE quickshell-wayland-toplevel-managementplugin)
+target_link_libraries(quickshell PRIVATE quickshell-wayland-toplevel-management)

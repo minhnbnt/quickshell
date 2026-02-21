@@ -27,7 +27,6 @@ qt_add_qml_module(quickshell-bluetooth
 	URI Quickshell.Bluetooth
 	VERSION 0.1
 	DEPENDENCIES QtQml
-	PLUGIN_TYPE DYNAMIC
 )
 
 target_link_libraries(quickshell-bluetoothplugin PRIVATE quickshell)

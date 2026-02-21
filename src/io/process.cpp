@@ -14,10 +14,11 @@
 #include <qvariant.h>
 
 #include "../core/generation.hpp"
+#include "../core/processcore.hpp"
 #include "../core/qmlglobal.hpp"
 #include "../core/reload.hpp"
 #include "datastream.hpp"
-#include "processcore.hpp"
+
 
 Process::Process(QObject* parent): PostReloadHook(parent) {
 	QObject::connect(

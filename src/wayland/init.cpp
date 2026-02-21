@@ -16,6 +16,7 @@ void installPopupPositioner();  // NOLINT(misc-use-internal-linkage)
 namespace {
 
 class WaylandPlugin: public QsEnginePlugin {
+	public:
 	QList<QString> dependencies() override { return {"window"}; }
 
 	bool applies() override {

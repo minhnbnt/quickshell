@@ -1,4 +1,4 @@
-qt_add_library(quickshell-hyprland-surface-extensions STATIC
+qt_add_library(quickshell-hyprland-surface-extensions SHARED
 	qml.cpp
 	manager.cpp
 	surface.cpp
@@ -10,6 +10,8 @@ qt_add_qml_module(quickshell-hyprland-surface-extensions
 	DEPENDENCIES QtQml
 )
 
+target_link_libraries(quickshell-hyprland-surface-extensionsplugin PRIVATE quickshell)
+
 install_qml_module(quickshell-hyprland-surface-extensions)
 
 wl_proto(wlp-hyprland-surface hyprland-surface-v1 "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -19,6 +21,6 @@ target_link_libraries(quickshell-hyprland-surface-extensions PRIVATE
 	wlp-hyprland-surface
 )
 
-qs_module_pch(quickshell-hyprland-surface-extensions)
+qs_pch(quickshell-hyprland-surface-extensions)
 
-target_link_libraries(quickshell PRIVATE quickshell-hyprland-surface-extensionsplugin)
+target_link_libraries(quickshell PRIVATE quickshell-hyprland-surface-extensions)

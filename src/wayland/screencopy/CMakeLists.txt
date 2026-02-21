@@ -1,4 +1,4 @@
-qt_add_library(quickshell-wayland-screencopy STATIC
+qt_add_library(quickshell-wayland-screencopy SHARED
 	manager.cpp
 	view.cpp
 )
@@ -8,6 +8,8 @@ qt_add_qml_module(quickshell-wayland-screencopy
 	VERSION 0.1
 	DEPENDENCIES QtQuick
 )
+
+target_link_libraries(quickshell-wayland-screencopyplugin PRIVATE quickshell)
 
 install_qml_module(quickshell-wayland-screencopy)
 
@@ -37,6 +39,6 @@ target_link_libraries(quickshell-wayland-screencopy PRIVATE
 	${SCREENCOPY_MODULES}
 )
 
-qs_module_pch(quickshell-wayland-screencopy SET large)
+qs_pch(quickshell-wayland-screencopy SET large)
 
-target_link_libraries(quickshell PRIVATE quickshell-wayland-screencopyplugin)
+target_link_libraries(quickshell PRIVATE quickshell-wayland-screencopy)

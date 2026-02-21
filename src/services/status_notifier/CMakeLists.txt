@@ -25,7 +25,7 @@ qt_add_dbus_interface(DBUS_INTERFACES
 	dbus_watcher_interface
 )
 
-qt_add_library(quickshell-service-statusnotifier STATIC
+qt_add_library(quickshell-service-statusnotifier SHARED
 	qml.cpp
 
 	watcher.cpp
@@ -44,11 +44,13 @@ qt_add_qml_module(quickshell-service-statusnotifier
 	DEPENDENCIES QtQml
 )
 
+target_link_libraries(quickshell-service-statusnotifierplugin PRIVATE quickshell)
+
 qs_add_module_deps_light(quickshell-service-statusnotifier Quickshell Quickshell.DBusMenu)
 
 install_qml_module(quickshell-service-statusnotifier)
 
 target_link_libraries(quickshell-service-statusnotifier PRIVATE Qt::Quick Qt::DBus)
-target_link_libraries(quickshell PRIVATE quickshell-service-statusnotifierplugin)
+target_link_libraries(quickshell PRIVATE quickshell-service-statusnotifier)
 
-qs_module_pch(quickshell-service-statusnotifier SET dbus)
+qs_pch(quickshell-service-statusnotifier SET dbus)
