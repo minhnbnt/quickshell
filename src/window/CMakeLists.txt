@@ -13,6 +13,20 @@ qt_add_library(quickshell-window SHARED
 target_link_libraries(quickshell-window PRIVATE quickshell-core)
 target_include_directories(quickshell-window PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/menu)
 
+set(IMPORTS)
+set(DEFAULT_IMPORTS)
+
+# # TODO
+# if (X11)
+# 	list(APPEND IMPORTS Quickshell._X11Overlay)
+# 	list(APPEND DEFAULT_IMPORTS Quickshell.X11)
+# endif()
+
+if (WAYLAND)
+	list(APPEND IMPORTS Quickshell._WaylandOverlay)
+	list(APPEND DEFAULT_IMPORTS Quickshell.Wayland)
+endif()
+
 qt_add_qml_module(quickshell-window
 	URI Quickshell._Window
 	VERSION 0.1

@@ -10,7 +10,7 @@
 namespace {
 
 class X11Plugin: public QsEnginePlugin {
-	public:
+public:
 	QList<QString> dependencies() override { return {"window"}; }
 
 	bool applies() override { return QGuiApplication::platformName() == "xcb"; }
@@ -18,14 +18,7 @@ class X11Plugin: public QsEnginePlugin {
 	void init() override { XAtom::initAtoms(); }
 
 	void registerTypes() override {
-		qmlRegisterType<XPanelInterface>("Quickshell._X11Overlay", 1, 0, "PanelWindow");
-
-		qmlRegisterModuleImport(
-		    "Quickshell",
-		    QQmlModuleImportModuleAny,
-		    "Quickshell._X11Overlay",
-		    QQmlModuleImportLatest
-		);
+		qmlRegisterType<XPanelInterface>("Quickshell._Window", 1, 0, "PanelWindow");
 	}
 };
 

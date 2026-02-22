@@ -109,7 +109,6 @@ if (SCREENCOPY)
 	list(APPEND WAYLAND_MODULES Quickshell.Wayland._Screencopy)
 endif()
 
-
 if (HYPRLAND)
 	add_subdirectory(hyprland)
 endif()
@@ -129,6 +128,7 @@ target_link_libraries(quickshell-wayland PRIVATE
 )
 
 target_link_libraries(quickshell-wayland-init PRIVATE Qt::Quick)
+target_link_libraries(quickshell-wayland PRIVATE quickshell-core quickshell-window)
 
 # TODO
 qt_add_qml_module(quickshell-wayland

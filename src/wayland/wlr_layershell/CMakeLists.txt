@@ -27,4 +27,4 @@ target_link_libraries(quickshell-wayland-layershell PRIVATE
 
 qs_pch(quickshell-wayland-layershell SET large)
 
-target_link_libraries(quickshell-wayland PRIVATE quickshell-wayland-layershell)
+target_link_libraries(quickshell PRIVATE quickshell-wayland-layershell)

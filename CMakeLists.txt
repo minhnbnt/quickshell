@@ -47,12 +47,11 @@ boption(BUILD_TESTING "Build tests (dev)" OFF)
 boption(ASAN "ASAN (dev)" OFF) # note: better output with gcc than clang
 boption(FRAME_POINTERS "Keep Frame Pointers (dev)" ${ASAN})
 
+boption(USE_JEMALLOC "Use jemalloc" OFF) # TODO: support jemalloc
 if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
 	boption(CRASH_REPORTER "Crash Handling" OFF)
-	boption(USE_JEMALLOC "Use jemalloc" OFF)
 else()
 	boption(CRASH_REPORTER "Crash Handling" ON)
-	boption(USE_JEMALLOC "Use jemalloc" ON)
 endif()
 boption(SOCKETS "Unix Sockets" ON)
 boption(WAYLAND "Wayland" ON)
