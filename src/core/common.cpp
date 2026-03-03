@@ -4,6 +4,9 @@
 
 namespace qs {
 
-const QDateTime Common::LAUNCH_TIME = QDateTime::currentDateTime();
+const QDateTime& Common::launchTime() {
+	static const QDateTime time = QDateTime::currentDateTime();
+	return time;
+}
 
 } // namespace qs

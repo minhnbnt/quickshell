@@ -37,6 +37,8 @@ target_include_directories(quickshell-bluetooth PRIVATE ${CMAKE_CURRENT_BINARY_D
 target_link_libraries(quickshell-bluetooth PRIVATE Qt::Qml Qt::DBus)
 qs_add_link_dependencies(quickshell-bluetooth quickshell-dbus)
 
+qs_add_module_deps_light(quickshell-bluetooth Quickshell)
+
 qs_module_pch(quickshell-bluetooth SET dbus)
 
 target_link_libraries(quickshell PRIVATE quickshell-bluetoothplugin)

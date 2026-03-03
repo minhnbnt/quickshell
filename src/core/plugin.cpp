@@ -1,5 +1,6 @@
 #include "plugin.hpp"
 #include <algorithm>
+#include <iostream>
 
 #include <qvector.h> // NOLINT (what??)
 
@@ -36,3 +37,5 @@ void QsEnginePlugin::runOnReload() {
 		plugin->onReload();
 	}
 }
+
+

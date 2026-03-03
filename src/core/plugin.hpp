@@ -31,7 +31,7 @@ public:
 
 // NOLINTBEGIN
 #define QS_REGISTER_PLUGIN(clazz)                                                                  \
-	[[gnu::constructor]] void qsInitPlugin() {                                                       \
+	[[gnu::constructor(300)]] void qsInitPlugin() {                                                  \
 		static clazz plugin;                                                                           \
 		QsEnginePlugin::registerPlugin(plugin);                                                        \
 	}

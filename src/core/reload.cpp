@@ -33,6 +33,10 @@ void Reloadable::componentComplete() {
 			    &Reloadable::onReloadFinished
 			);
 		}
+	} else {
+		// No EngineGeneration found — standalone / PySide6 usage.
+		// Trigger reload on the next event loop iteration so Component.onCompleted runs first.
+		QTimer::singleShot(0, this, &Reloadable::onReloadFinished);
 	}
 }
 

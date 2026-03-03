@@ -35,7 +35,7 @@ StatusNotifierHost::StatusNotifierHost(QObject* parent): QObject(parent) {
 
 	this->hostId = QString("org.kde.StatusNotifierHost-%1-%2")
 	                   .arg(QString::number(getpid()))
-	                   .arg(QString::number(qs::Common::LAUNCH_TIME.toMSecsSinceEpoch()));
+	                   .arg(QString::number(qs::Common::launchTime().toMSecsSinceEpoch()));
 
 	auto success = bus.registerService(this->hostId);
 

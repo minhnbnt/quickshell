@@ -1,10 +1,9 @@
-qt_add_library(quickshell-core STATIC
+qt_add_library(quickshell SHARED
 	plugin.cpp
 	shell.cpp
 	variants.cpp
 	rootwrapper.cpp
 	reload.cpp
-	rootwrapper.cpp
 	qmlglobal.cpp
 	qmlscreen.cpp
 	region.cpp
@@ -42,21 +41,24 @@ qt_add_library(quickshell-core STATIC
 	toolsupport.cpp
 )
 
-qt_add_qml_module(quickshell-core
+qt_add_qml_module(quickshell
 	URI Quickshell
 	VERSION 0.1
 	DEPENDENCIES QtQuick
 	OPTIONAL_IMPORTS Quickshell._Window
 	DEFAULT_IMPORTS Quickshell._Window
+	NO_GENERATE_PLUGIN_SOURCE
 )
 
-install_qml_module(quickshell-core)
+target_sources(quickshellplugin PRIVATE qmlplugin.cpp)
 
-target_link_libraries(quickshell-core PRIVATE Qt::Quick Qt::QuickPrivate Qt::Widgets quickshell-build)
+install_qml_module(quickshell)
 
-qs_module_pch(quickshell-core SET large)
+target_link_libraries(quickshell PRIVATE Qt::Quick Qt::QuickPrivate Qt::Widgets quickshell-build)
 
-target_link_libraries(quickshell PRIVATE quickshell-coreplugin)
+qs_pch(quickshell SET large)
+
+#target_link_libraries(quickshell PRIVATE quickshell-coreplugin)
 
 if (BUILD_TESTING)
 	add_subdirectory(test)

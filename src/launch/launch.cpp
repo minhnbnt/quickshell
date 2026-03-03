@@ -127,12 +127,12 @@ int launch(const LaunchArgs& args, char** argv, QCoreApplication* coreApplicatio
 
 	qInfo() << "Shell ID:" << shellId << "Path ID" << pathId;
 
-	auto launchTime = qs::Common::LAUNCH_TIME.toSecsSinceEpoch();
+	auto launchTime = qs::Common::launchTime().toSecsSinceEpoch();
 	InstanceInfo::CURRENT = InstanceInfo {
 	    .instanceId = base36Encode(getpid()) + base36Encode(launchTime),
 	    .configPath = args.configPath,
 	    .shellId = shellId,
-	    .launchTime = qs::Common::LAUNCH_TIME,
+	    .launchTime = qs::Common::launchTime(),
 	    .pid = getpid(),
 	    .display = getDisplayConnection(),
 	};

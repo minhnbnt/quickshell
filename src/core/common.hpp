@@ -6,7 +6,7 @@
 namespace qs {
 
 struct Common {
-	static const QDateTime LAUNCH_TIME;
+	static const QDateTime& launchTime();
 	static inline QProcessEnvironment INITIAL_ENVIRONMENT = {}; // NOLINT
 };
 
